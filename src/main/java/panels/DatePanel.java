@@ -170,10 +170,10 @@ public class DatePanel extends JPanel implements ActionListener{
     /**
      * Returns a new filtered list.
      * <p>
-     * The list contains only the voices included in the requested period..
+     * The list contains only the voices included in the requested period.
      * 
      * @param date the starting date (day, month or year)
-     * @param select allows to choose wich operation must be performed
+     * @param select allows to choose which operation must be performed
      *               1 - filters a day;
      *               2 - filters a week from the first day;
      *               3 - filters a month;
@@ -184,15 +184,15 @@ public class DatePanel extends JPanel implements ActionListener{
      * @throws EmptySearchListException 
      */
     public ArrayList<MainValues> periodFilter(String date,int select) throws ParseException,EmptySearchListException{
-        ArrayList<MainValues> newList = new ArrayList(0);
+        ArrayList<MainValues> newList = new ArrayList<>(0);
         
         String compDate;
         switch (select) {
             case 1 -> {
-                for(int i=0;i<list.size();i++){
-                    compDate = list.get(i).getDate();
-                    if(date.equals(compDate))
-                        newList.add(list.get(i));
+                for (MainValues mainValues : list) {
+                    compDate = mainValues.getDate();
+                    if (date.equals(compDate))
+                        newList.add(mainValues);
                 }
             }
             case 2 -> {
@@ -200,19 +200,19 @@ public class DatePanel extends JPanel implements ActionListener{
                 newList = periodFilter(date,end);
             }
             case 3 -> {
-                for(int i=0;i<list.size();i++){
-                    compDate = list.get(i).getDate();
-                    compDate = splitMonthOrYear(compDate,false);
-                    if(date.equals(compDate))
-                        newList.add(list.get(i));
+                for (MainValues mainValues : list) {
+                    compDate = mainValues.getDate();
+                    compDate = splitMonthOrYear(compDate, false);
+                    if (date.equals(compDate))
+                        newList.add(mainValues);
                 }
             }
             case 4 -> {
-                for(int i=0;i<list.size();i++){
-                    compDate = list.get(i).getDate();
-                    compDate = splitMonthOrYear(compDate,true);
-                    if(date.equals(compDate))
-                        newList.add(list.get(i));
+                for (MainValues mainValues : list) {
+                    compDate = mainValues.getDate();
+                    compDate = splitMonthOrYear(compDate, true);
+                    if (date.equals(compDate))
+                        newList.add(mainValues);
                 }
             }
             default -> {}
@@ -235,12 +235,12 @@ public class DatePanel extends JPanel implements ActionListener{
      * @throws ParseException 
      */
     public ArrayList<MainValues> periodFilter(String start,String end) throws EmptySearchListException,ParseException{
-        ArrayList<MainValues> newList = new ArrayList(0);
-        
-        for(int i=0;i<list.size();i++){
-            String compDate = list.get(i).getDate();
-            if(compDays(start,end,compDate))
-                newList.add(list.get(i));
+        ArrayList<MainValues> newList = new ArrayList<>(0);
+
+        for (MainValues mainValues : list) {
+            String compDate = mainValues.getDate();
+            if (compDays(start, end, compDate))
+                newList.add(mainValues);
         }
         
         if(newList.isEmpty())
@@ -292,10 +292,10 @@ public class DatePanel extends JPanel implements ActionListener{
      * 
      * @param date The date to split.
      * @param year When true returns only the year portion of the date.
-     * @return The splitted date.
+     * @return The divided date.
      */
     public String splitMonthOrYear(String date,boolean year){
-        String split[] = date.split("/");
+        String[] split = date.split("/");
         
         if(year)
             return split[2];
@@ -305,7 +305,7 @@ public class DatePanel extends JPanel implements ActionListener{
     /**
      * Checks if the date String matches the "regex" pattern.
      * <p>
-     * Throws an exception if the pattern tsn't matched.
+     * Throws an exception if the pattern isn't matched.
      * 
      * @param match The String to check.
      * @throws WrongDatePatternException 

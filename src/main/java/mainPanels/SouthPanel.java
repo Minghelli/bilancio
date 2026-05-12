@@ -85,7 +85,7 @@ public class SouthPanel extends JPanel implements ActionListener{
             }
             case "Save" -> {
                 IOProcedures s;
-                String options[] = {".txt",".csv"};
+                String[] options = {".txt",".csv"};
                 if(DatePanel.filterCheck()){
                     JOptionPane.showMessageDialog(null,"Disinserire i filtri per salvare.","Errore",JOptionPane.ERROR_MESSAGE);
                 }
@@ -121,14 +121,14 @@ public class SouthPanel extends JPanel implements ActionListener{
                 }
             }
             case "Load" -> {
-                int choise = 0 ;
+                int choice = 0 ;
                 if(DatePanel.filterCheck()){
                     JOptionPane.showMessageDialog(null,"Disinserire i filtri per caricare.","Errore",JOptionPane.ERROR_MESSAGE);
                 }
                 else if(!list.isEmpty())
-                    choise = JOptionPane.showConfirmDialog(null,"Il caricamento da file esterno comporta la perdita dei dati attuali,"
+                    choice = JOptionPane.showConfirmDialog(null,"Il caricamento da file esterno comporta la perdita dei dati attuali,"
                             + " procedere comunque?","Caricamento",JOptionPane.YES_NO_OPTION);
-                if(choise == 0){
+                if(choice == 0){
                     IOProcedures r;
                     
                     ArrayList<MainValues> newList;
@@ -142,7 +142,7 @@ public class SouthPanel extends JPanel implements ActionListener{
                         
                         try {
                             String file = f.toString();
-                            String ext[] = file.split("\\.");
+                            String[] ext = file.split("\\.");
                             if(ext.length <= 1){
                                 JOptionPane.showMessageDialog(null,"Nome file errato!","Errore Lettura",JOptionPane.ERROR_MESSAGE);
                             }

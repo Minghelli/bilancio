@@ -35,8 +35,8 @@ public class TxtIO implements IOProcedures{
         FileWriter file = new FileWriter(f);
         BufferedWriter writer = new BufferedWriter(file);
 
-        for(int i=0;i<list.size();i++){
-            String buffer = list.get(i).toString();
+        for (MainValues mainValues : list) {
+            String buffer = mainValues.toString();
 
             writer.write(buffer);
             writer.newLine();
@@ -54,7 +54,7 @@ public class TxtIO implements IOProcedures{
      */
     @Override
     public ArrayList<MainValues> read(File f) throws IOException{
-        ArrayList<MainValues> newList = new ArrayList(0);
+        ArrayList<MainValues> newList = new ArrayList<>(0);
         
         System.out.println(f);
         
@@ -65,7 +65,7 @@ public class TxtIO implements IOProcedures{
             String s = scan.nextLine();
             System.out.println(s);
 
-            String split[] = s.split(" ",3);
+            String[] split = s.split(" ",3);
             MainValues values = new MainValues(split);
 
             newList.add(values);
@@ -85,7 +85,7 @@ public class TxtIO implements IOProcedures{
     @Override
     public boolean checkFileFormat(File f) throws WrongFileNameException{
         String file = f.toString();
-        String ext[] = file.split("\\.");
+        String[] ext = file.split("\\.");
         
         if(ext.length <= 1){
             throw new WrongFileNameException("");

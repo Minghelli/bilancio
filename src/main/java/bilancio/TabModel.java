@@ -12,15 +12,15 @@ import javax.swing.table.*;
  * @version 1.0
  */
 public class TabModel extends AbstractTableModel {
-    private ArrayList<MainValues> list;
+    private final ArrayList<MainValues> list;
     private double tot;
     
-    private String[] columns = {"Data","Valore","Descrizione"};
+    private final String[] columns = {"Data","Valore","Descrizione"};
     
     /**
      * Constructs the new model.
      * 
-     * @param list The main list to dysplay on the table.
+     * @param list The main list to display on the table.
      */
     public TabModel(ArrayList<MainValues> list){
         this.list = list;
@@ -47,13 +47,11 @@ public class TabModel extends AbstractTableModel {
         if(r == list.size()){
             if(c == 1){
                 tot = 0;
-                for(int i=0;i<list.size();i++)
-                    tot += list.get(i).getValue();
+                for (MainValues mainValues : list) tot += mainValues.getValue();
             }
             return switch(c){
                 case 0 -> "TOTALE: ";
                 case 1 -> tot;
-                case 2 -> "";
                 default -> "";
             };
         }

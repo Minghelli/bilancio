@@ -30,7 +30,7 @@ public class ModPanel extends CustomPanel implements ActionListener{
      * 
      * @param list The main list to operate on.
      * @param fr The parent frame to close when the operations are finished.
-     * @param index The voice's index in the list..
+     * @param index The voice's index in the list.
      */
     public ModPanel(ArrayList<MainValues> list,JFrame fr,int index){
         super();

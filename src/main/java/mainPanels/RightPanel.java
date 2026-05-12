@@ -17,11 +17,11 @@ import javax.swing.table.TableModel;
  * @version 1.0
  */
 public class RightPanel extends JPanel implements ActionListener{
-    private JButton add,remove,mod,filter,clear;
-    private JTable tab;
+    private final JButton add,remove,mod,filter,clear;
+    private final JTable tab;
     
     private ArrayList<MainValues> list,newList;
-    private TableModel mainMod;
+    private final TableModel mainMod;
     
     /**
      * Constructs the new JPanel.
@@ -44,7 +44,7 @@ public class RightPanel extends JPanel implements ActionListener{
         add(Box.createVerticalStrut(5));
         add(this.add); 
         add(Box.createVerticalStrut(15));
-        add(this.remove); 
+        add(this.remove);
         add(this.mod);
         add(Box.createVerticalStrut(25));
         add(this.filter);
@@ -119,9 +119,9 @@ public class RightPanel extends JPanel implements ActionListener{
                 if(list.isEmpty())
                     JOptionPane.showMessageDialog(null, "Nessuna voce presente.", "Errore",JOptionPane.ERROR_MESSAGE);
                 else{
-                    int choise = JOptionPane.showConfirmDialog(null,"Sicuro di voler cancellare le voci??","Clear",JOptionPane.YES_NO_OPTION);
+                    int choice = JOptionPane.showConfirmDialog(null,"Sicuro di voler cancellare le voci??","Clear",JOptionPane.YES_NO_OPTION);
 
-                    if(choise == 0){
+                    if(choice == 0){
                         if(DatePanel.filterCheck()){
                             newList = DatePanel.getFilteredList();
                             list.removeAll(newList);
@@ -156,7 +156,7 @@ public class RightPanel extends JPanel implements ActionListener{
             }
         }
     }
-    
+
     /**
      * Removes a voice from both filtered and main list.
      * 

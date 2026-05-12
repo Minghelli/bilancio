@@ -18,7 +18,7 @@ public class Bilancio {
      * It creates a new JFrame within the three main panels. It's called by the main method.
      */
     public static void init(){
-        ArrayList<MainValues> list = new ArrayList(0);
+        ArrayList<MainValues> list = new ArrayList<>(0);
         
         JFrame mainFrame = new JFrame("Gestione bilancio");
         mainFrame.setLocation(500,150);

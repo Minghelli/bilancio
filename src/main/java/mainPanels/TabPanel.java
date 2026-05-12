@@ -8,7 +8,7 @@ import javax.swing.*;
 /**
  * One of the panels that appears on the main frame.
  * <p>
- * This panel contains a JTable with a scroll pane, representing all the list's elements and one other row containing the algebric sum of
+ * This panel contains a JTable with a scroll pane, representing all the list's elements and one other row containing the algebraic sum of
  * the numeric values.
  * 
  * @author Minghe
@@ -20,7 +20,7 @@ public class TabPanel extends JPanel{
     /**
      * Constructs the new panel within the JTable.
      * 
-     * @param list The main list to dysplay
+     * @param list The main list to display
      */
     public TabPanel(ArrayList<MainValues> list){
         super();

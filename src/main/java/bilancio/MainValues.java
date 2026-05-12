@@ -49,7 +49,7 @@ public class MainValues {
      * 
      * @param line the String array containing the parameters.
      */
-    public MainValues(String line[]) {
+    public MainValues(String[] line) {
         this.value = Double.parseDouble(line[0]);
         this.date = line[1];
         this.desc = line[2];
@@ -115,11 +115,11 @@ public class MainValues {
      * @return The String containing the values.
      */
     public String toStringCSV(){
-        return String.valueOf(this.value) + "," + this.date + "," + this.desc;
+        return this.value + "," + this.date + "," + this.desc;
     }
     
     @Override
     public String toString(){
-        return String.valueOf(this.value) + " " + this.date + " " + this.desc;
+        return this.value + " " + this.date + " " + this.desc;
     }
 }
